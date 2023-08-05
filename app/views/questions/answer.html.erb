@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsFirstApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class = "text-center">
+    <h1>---- Stupid Coaching ----</h1>
+    <h2>Hello User!</h2>
+    <iframe src="https://giphy.com/embed/bcKmIWkUMCjVm" width="280" height="280" frameBorder="0" class="giphy-embed"></iframe>
+    <h5>Coach's Answer:</h3>
+    <strong><p>
+    <% if @question.blank? %>
+      <%= @answer = "I can't hear you"  %>
+    <% elsif @question == "I'm going to work" %>
+      <%= @answer = "🎉🎉🎉🎉🦄🦄💃💃Finally, you will make some money!🦄🦄💃💃🎉🎉🎉🎉" %>
+    <% else %>
+      <%= @answer = "I don't care, get dressed and go to work!"  %>
+    <% end %>
+    </p></strong>
+    <br>
+    <div class="btn btn-warning">
+    <%= link_to "New Question", ask_path %>
+    </div>
+  </body>
+</html>
